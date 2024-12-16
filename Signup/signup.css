@@ -1,0 +1,75 @@
+/* General body styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4; /* Light gray background */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh; /* Full viewport height */
+    margin: 0;
+}
+
+/* Main heading styling */
+h1 {
+    color: #333; /* Dark gray color */
+    margin-bottom: 10px;
+}
+
+/* Subheading styling */
+h2 {
+    color: #555; /* Medium gray color */
+    margin-bottom: 20px;
+}
+
+/* Form container styling */
+form {
+    background-color: white; /* White background for the form */
+    padding: 20px;
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+    width: 300px; /* Fixed width */
+}
+
+/* Input field styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for comfort */
+    margin: 10px 0; /* Margin for spacing */
+    border: 1px solid #ccc; /* Light gray border */
+    border-radius: 4px; /* Rounded corners */
+    box-sizing: border-box; /* Include padding and border in element's total width and height */
+}
+
+/* Button styling */
+button {
+    width: 100%; /* Full width */
+    padding: 10px; /* Padding for comfort */
+    background-color: #007bff; /* Bootstrap primary color */
+    color: white; /* White text */
+    border: none; /* No border */
+    border-radius: 4px; /* Rounded corners */
+    cursor: pointer; /* Pointer cursor on hover */
+    font-size: 16px; /* Font size */
+}
+
+/* Button hover effect */
+button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+}
+
+/* Link styling */
+p {
+    margin-top: 15px; /* Margin for spacing */
+}
+
+a {
+    color: #007bff; /* Link color */
+    text-decoration: none; /* No underline */
+}
+
+a:hover {
+    text-decoration: underline; /* Underline on hover */
+}

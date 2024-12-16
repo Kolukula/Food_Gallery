@@ -1,0 +1,90 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Gallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+        <div class="container-fluid">
+          <a class="navbar-brand" href="../Home/home.html"><img src="../Images/logo.png" alt="" width="100px"></a>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" href="../Home/home.html">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="../Login/login.html">Logout</a>
+              </li> 
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <h1>Try your favorite recipes in Kishore's Food Gallery</h1>
+    <div id=" allFavRecipes"></div>
+   
+     <footer class="text-center mt-5">
+        <p>&copy; 2024 Recipe App. All rights reserved.</p>
+    </footer>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Login/login.js"></script>
+    <script src="../Home/home.js"></script>
+    <script>
+       document.addEventListener("DOMContentLoaded", () => {
+    const favContainer = document.getElementById("fav-items"); // Ensure this matches your HTML
+    const favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
+
+    // Debugging log: Check retrieved data
+    console.log("Favorite Recipes:", favRecipes);
+
+    if (favRecipes.length === 0) {
+        favContainer.innerHTML = "<p>No favorite items found!</p>";
+        return;
+    }
+
+    // Render favorite items
+    favRecipes.forEach((recipe, index) => {
+        console.log(`Rendering recipe: ${recipe.name}`); // Debugging log
+
+        const card = document.createElement("div");
+        card.className = "fav-item";
+        card.innerHTML = `
+            <img src='${recipe.image}' alt='${recipe.name}'/>
+            <h3>${recipe.name}</h3>
+            <p>Category: ${recipe.category}</p>
+            <p>${recipe.description}</p>
+            <button class='btn remove-btn' data-index='${index}'>Remove</button>
+        `;
+        favContainer.appendChild(card);
+
+        // Add remove functionality
+        card.querySelector(".remove-btn").addEventListener("click", () => {
+            const updatedFavRecipes = favRecipes.filter((_, i) => i !== index);
+            localStorage.setItem("favRecipes", JSON.stringify(updatedFavRecipes));
+            card.remove();
+            alert("Item removed from Favourites!");
+
+            if (updatedFavRecipes.length === 0) {
+                favContainer.innerHTML = "<p>No favorite items found!</p>";
+            }
+        });
+    });
+});
+
+      
+    </script>
+    <script src="../Home/home.js"></script>
+
+    <!-- <script src="signup.js"> -->
+        
+</body>
+</html> 

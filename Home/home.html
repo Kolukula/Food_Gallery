@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Gallery</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Home/home.css">
+    <link rel="shortcut icon"
+        href="../Images/logo.png"
+        type="image/x-icon">
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand" href="../Home/home.html"><img src="../Images/logo.png" alt="" width="100px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/home.html">Home</a>
+                </li>
+                <!-- <li class="nav-item">
+                    <a class="nav-link" href="login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="signup.html">Sign Up</a>
+                </li> -->
+                <li class="nav-item">
+                    <a class="nav-link" href="../Favourite/favorites.html">Favorites</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Login/login.html">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <div class="container mt-5">
+        <h1 class="text-center">Find Your Favorite Recipes</h1>
+        <form id="searchForm" class="form-inline justify-content-center mt-4">
+            <input type="text" class="form-control mr-2" id="searchInput" placeholder="Search for recipes...">
+            <button type="submit" class="btn btn-primary">Search</button>
+        </form>
+        <div id="recipeResults" class="row mt-4"></div>
+    </div>
+
+    <div class="cat">
+        <button id="Vegetarian">Vegetarian</button>
+        <button id="Non-Vegetarian">Non-Vegetarian</button>
+        <button id="Dessert">Dessert</button>
+        <button id="Snacks">Snacks</button>
+    </div>
+
+    <div id="items"></div>
+    <!-- <div id="favBtn"></div> -->
+
+    <p class="mtp">No more recipes<a href="../Home/home.html">Move to top</a> </p>
+
+    <footer class="text-center mt-5">
+        <p>&copy; 2024 Recipe App. All rights reserved.</p>
+    </footer>
+
+    <script src="../data.js" ></script>
+    <script src="../Home/home.js" ></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="../Login/login.js"></script>
+</body>
+
+</html>

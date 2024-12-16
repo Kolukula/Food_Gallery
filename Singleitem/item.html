@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>hello</h1>
+    <script>
+        const singleItem=JSON.parse(localStorage.getItem("singleItem"))
+
+        let singleCard=document.createElement("div")
+            singleCard.innerHTML=`
+            <img src="${singleItem.image}"/>
+            `
+        document.body.append(singleItem)
+    </script>
+    <script src="../Home/home.js"></script>
+</body>
+</html>
