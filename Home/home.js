@@ -105,6 +105,10 @@ function renderRecipes(data) {
                 alert("Item added to Favourites!");
             }
         });
+        card.querySelector(".view-btn").addEventListener("click", ()=>{
+            localStorage.setItem("singleitem",JSON.stringify(recipe))
+            window.location.href="../Singleitem/item.html"
+        })
     });
 }
 

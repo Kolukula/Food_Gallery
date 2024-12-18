@@ -9,7 +9,7 @@ var data = [
       "ingredients": [
         "Chicken",
         "Butter",
-        "Tomatoes",
+        "Tomatoes", 
         "Cream",
         "Spices"
       ],

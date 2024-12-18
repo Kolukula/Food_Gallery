@@ -1,4 +1,4 @@
-#favouriteItems{
+/* .card{
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -6,10 +6,10 @@
     height: 100%;
     
 }
-#favouriteItems{
+.card{
     margin: 30px;
     /* border: 2px solid blue; */
-    box-shadow: 0 0 10px black;
+    /* box-shadow: 0 0 10px black;
     border-radius: 10px;
     height: fit-content;
     width: 300px;
@@ -28,4 +28,4 @@
         border-radius: 5px;
         margin-left: 20px;
     }
-}
+} */ 

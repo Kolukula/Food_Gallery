@@ -1,17 +1,153 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Food Gallery</title>
+    <link rel="stylesheet" href="favorites.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+    /* General Styling */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f9f9f9;
+    margin: 0;
+    padding: 0;
+}
+/* Header */
+h1 {
+    color: #333;
+    margin-bottom: 30px;
+    font-size: 2rem;
+    text-align: center;
+}
+
+/* Recipe Cards */
+#allFavRecipes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px;
+}
+
+#allFavRecipes .card {
+  padding: 20px;
+    width: 350px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+}
+
+#allFavRecipes .card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+#allFavRecipes img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-bottom: 3px solid #007bff;
+}
+
+.card-body {
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.5em;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.card-text {
+    font-size: 0.9em;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.card .btn {
+    width: 40%;
+    margin-top: 10px;
+}
+
+.btn-primary {
+    background-color: #007bff;
+    border-color: #007bff;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+    background-color: #0056b3;
+    border-color: #0056b3;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    border-color: #dc3545;
+    color: #fff;
+    transition: background-color 0.3s;
+}
+
+.btn-danger:hover {
+    background-color: #a71d2a;
+    border-color: #a71d2a;
+}
+
+/* Footer */
+footer {
+    background-color: #ffffff;
+    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+    padding: 15px 0;
+    text-align: center;
+    margin-top: 20px;
+}
+
+footer p {
+    margin: 0;
+    font-size: 0.9em;
+    color: #555;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    #allFavRecipes .card {
+        width: 90%;
+    }
+
+    h1 {
+        font-size: 1.5em;
+    }
+}
+
+@media (max-width: 480px) {
+    .navbar-brand img {
+        height: 40px;
+    }
+
+    h1 {
+        font-size: 1.2em;
+    }
+
+    .btn {
+        font-size: 0.9em;
+    }
+}
+
+    </style>
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-body-tertiary">
+    <nav class="navbar navbar-expand-lg bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="../Home/home.html"><img src="../Images/logo.png" alt="" width="100px"></a>
-          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+          <a class="navbar-brand" href="../Home/home.html">
+              <img src="../Images/logo.png" alt="Logo" width="100px">
+          </a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
@@ -26,65 +162,59 @@
           </div>
         </div>
       </nav>
-    <h1>Try your favorite recipes in Kishore's Food Gallery</h1>
-    <div id=" allFavRecipes"></div>
-   
-     <footer class="text-center mt-5">
+    <div class="container">
+        <h1 class="text-center my-4">Try your favorite recipes in Kishore's Food Gallery</h1>
+        <div id="allFavRecipes" class="row"></div>
+    </div>
+    <footer class="text-center mt-5">
         <p>&copy; 2024 Recipe App. All rights reserved.</p>
     </footer>
 
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="../Login/login.js"></script>
-    <script src="../Home/home.js"></script>
     <script>
-       document.addEventListener("DOMContentLoaded", () => {
-    const favContainer = document.getElementById("fav-items"); // Ensure this matches your HTML
-    const favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
+        // Fetch recipes from localStorage
+        const favRecipes = JSON.parse(localStorage.getItem("favRecipes")) || [];
+        const allFavRecipesContainer = document.getElementById("allFavRecipes");
 
-    // Debugging log: Check retrieved data
-    console.log("Favorite Recipes:", favRecipes);
-
-    if (favRecipes.length === 0) {
-        favContainer.innerHTML = "<p>No favorite items found!</p>";
-        return;
-    }
-
-    // Render favorite items
-    favRecipes.forEach((recipe, index) => {
-        console.log(`Rendering recipe: ${recipe.name}`); // Debugging log
-
-        const card = document.createElement("div");
-        card.className = "fav-item";
-        card.innerHTML = `
-            <img src='${recipe.image}' alt='${recipe.name}'/>
-            <h3>${recipe.name}</h3>
-            <p>Category: ${recipe.category}</p>
-            <p>${recipe.description}</p>
-            <button class='btn remove-btn' data-index='${index}'>Remove</button>
-        `;
-        favContainer.appendChild(card);
-
-        // Add remove functionality
-        card.querySelector(".remove-btn").addEventListener("click", () => {
-            const updatedFavRecipes = favRecipes.filter((_, i) => i !== index);
-            localStorage.setItem("favRecipes", JSON.stringify(updatedFavRecipes));
-            card.remove();
-            alert("Item removed from Favourites!");
-
-            if (updatedFavRecipes.length === 0) {
-                favContainer.innerHTML = "<p>No favorite items found!</p>";
+        // Function to render all recipes
+        function renderRecipes() {
+            allFavRecipesContainer.innerHTML = ""; // Clear the container
+            if (favRecipes.length > 0) {
+                favRecipes.forEach((recipe, index) => {
+                    const favItem = document.createElement("div");
+                    favItem.className = "col-md-4 text-center";
+                    favItem.innerHTML = `
+                        <div class="card">
+                            <img src="${recipe.image || 'default-image.jpg'}" alt="${recipe.name}" class="card-img-top">
+                            <div class="card-body">
+                                <h5 class="card-title">${recipe.name}</h5>
+                                <p class="card-text">${recipe.description || 'No description available.'}</p>
+                                <p><strong>Category:</strong> ${recipe.category || 'Unknown'}</p>
+                                <a href="#" class="btn btn-primary">View Recipe</a>
+                                <button class="btn btn-danger mt-2" onclick="removeRecipe(${index})">Remove</button>
+                            </div>
+                        </div>
+                    `;
+                    allFavRecipesContainer.appendChild(favItem);
+                });
+            } else {
+                allFavRecipesContainer.innerHTML = '<p class="text-center">No favorite recipes found.</p>';
             }
-        });
-    });
-});
+        }
 
-      
+        // Function to remove a recipe
+        function removeRecipe(index) {
+            // Remove the recipe from the array
+            favRecipes.splice(index, 1);
+
+            // Update localStorage
+            localStorage.setItem("favRecipes", JSON.stringify(favRecipes));
+
+            // Re-render the recipes
+            renderRecipes();
+        }
+
+        // Initial render
+        renderRecipes();
     </script>
-    <script src="../Home/home.js"></script>
-
-    <!-- <script src="signup.js"> -->
-        
 </body>
-</html> 
+</html>
