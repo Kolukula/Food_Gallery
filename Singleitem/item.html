@@ -3,97 +3,189 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Food Gallery</title>
+    <link rel="shortcut icon" href="../Images/logo.png" type="image/x-icon">
     <style>
-        /* Footer */
-footer {
-    background-color: #ffffff;
-    box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
-    padding: 15px 0;
-    text-align: center;
-    margin-top: 20px;
-}
+      /* General Styles */
+      body {
+          font-family: Arial, sans-serif;
+          margin: 0;
+          padding: 0;
+          background-color: #f8f9fa;
+          color: #333;
+      }
 
-footer p {
-    margin: 0;
-    font-size: 0.9em;
-    color: #555;
-}
-    </style>
+      /* Navbar Styles */
+      .navbar {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          padding: 10px 20px;
+          background-color: #fff;
+          box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      }
+
+      .navbar-brand img {
+          height: 100px;
+      }
+
+      .navbar-nav {
+          display: flex;
+          flex-direction: row;
+          list-style: none;
+          padding: 0;
+          margin: 0;
+      }
+
+      .nav-item {
+          margin: 0 15px;
+      }
+
+      .nav-link {
+          text-decoration: none;
+          color: #007bff;
+          font-size: 16px;
+      }
+
+      .nav-link:hover {
+          text-decoration: underline;
+      }
+
+      .nav-link.active {
+          font-weight: bold;
+      }
+
+      /* Footer Styles */
+      footer {
+          background-color: #343a40;
+          color: #fff;
+          padding: 15px;
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+      }
+
+      footer p {
+          margin: 0;
+          font-size: 14px;
+          text-align: center;
+      }
+
+      #item{
+        max-width: 100vw;
+          /* margin: 50px auto; */
+          /* margin: 100px; */
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          overflow: hidden;
+          text-align: center;
+          padding: 20px;
+      }
+
+      #item img{
+        max-width: 450px;
+          height: auto;
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 10px;
+      }
+
+      #item h5 {
+          font-size: 40px;
+          margin: 15px 0;
+          color: #333;
+      }
+
+      #item p {
+          font-size: 16px;
+          margin: 10px 0;
+          color: #555;
+      }
+
+      #item strong {
+          color: #000;
+      }
+
+      /* Item Card Styles */
+      .item-card {
+          max-width: 600px;
+          /* margin: 50px auto; */
+        margin: 100px;
+          background-color: #fff;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          border-radius: 8px;
+          overflow: hidden;
+          text-align: center;
+          padding: 20px;
+      }
+
+      .item-card img {
+          max-width: 100%;
+          height: auto;
+          border-bottom: 1px solid #ddd;
+          padding-bottom: 10px;
+      }
+
+      .item-card h5 {
+          font-size: 40px;
+          margin: 15px 0;
+          color: #333;
+      }
+
+      .item-card p {
+          font-size: 16px;
+          margin: 10px 0;
+          color: #555;
+      }
+
+      .item-card strong {
+          color: #000;
+      }
+  </style>
+    
+
 </head>
 <body>
-    <nav class="navbar navbar-expand-lg bg-light">
-        <div class="container-fluid">
-          <a class="navbar-brand" href="../Home/home.html">
-              <img src="../Images/logo.png" alt="Logo" width="100px">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+
+      <nav class="navbar navbar-expand-lg navbar-light bg-light" >
+        <a class="navbar-brand" href="../Home/home.html"><img src="../Images/logo.png" alt="" width="100px"></a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
-          </button>
-          <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
-              <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="../Home/home.html">Home</a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" href="../Login/login.html">Logout</a>
-              </li> 
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ml-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Home/home.html">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Login/login.html">Logout</a>
+                </li>
             </ul>
-          </div>
         </div>
-      </nav>
-    <h1>hello</h1>
-    <div id=""></div>
+    </nav>
+    
+    <div id="item"></div>
     <footer class="text-center mt-5">
         <p>&copy; 2024 Recipe App. All rights reserved.</p>
     </footer>
 
-
-    <!-- <script>
-        // Retrieve the item from localStorage
-        const singleItemRaw = localStorage.getItem("singleItem");
-    
-        if (!singleItemRaw) {
-            console.error("No data found under 'singleItem' in localStorage.");
-        } else {
-            try {
-                const singleItem = JSON.parse(singleItemRaw);
-    
-                if (!singleItem || typeof singleItem !== "object") {
-                    throw new Error("Invalid data format for 'singleItem'.");
-                }
-    
-                // Create a new div for the item card
-                let itemCard = document.createElement("div");
-                itemCard.innerHTML = `
-                    <img src="${singleItem.image || 'default-image.jpg'}" alt="${singleItem.name || 'No name available'}" class="card-img-top">
-                    <h5>${singleItem.name || 'No name available'}</h5>
-                    <p>${singleItem.description || 'No description available.'}</p>
-                    <p><strong>Category:</strong> ${singleItem.category || 'Unknown'}</p>
-                    <p><strong>Ingredients:</strong> ${singleItem.ingredients || 'Unknown'}</p>
-                    <p><strong>Steps:</strong> ${singleItem.steps || 'No steps provided.'}</p>
-                `;
-                // Append the item card to the body
-                document.body.appendChild(itemCard);
-            } catch (error) {
-                console.error("Failed to parse 'singleItem' from localStorage:", error.message);
-            }
-        }
-    </script> -->
-    
+ 
     <script>
-        const singleItem=JSON.parse(localStorage.getItem("singleItem"));
+        let k=document.getElementById("item")
+        const singleItem=JSON.parse(localStorage.getItem("singleitem"));
 
         let itemCard=document.createElement("div")
         itemCard.innerHTML=`
-        <img src="${singleItem.image || 'default-image.jpg'}" alt="${recipe.name}" class="card-img-top">
+        <img src='${singleItem.image}' class="itemimage"/>
         <h5>${singleItem.name}</h5>
-        <p>${recipe.description || 'No description available.'}</p>
-        <p><strong>Category:</strong> ${recipe.category || 'Unknown'}</p>
-        <p>${recipe.ingredients || 'unknown'}</p>
-        <p>${recipe.steps}</p>
+        <p>${singleItem.description }</p>
+        <p><strong>Category:</strong> ${singleItem.category }</p>
+        <p><strong>Ingredients:</strong> ${singleItem.ingredients}</p>
+        <ul><strong>Making Process:</strong> ${singleItem.steps}</ul>
         `
-        document.body.append("itemCard")
+        item.append(itemCard)
+        
     </script>
     <!-- <script src="../Home/home.js"></script> -->
 </body>

@@ -189,7 +189,7 @@ footer p {
                                 <h5 class="card-title">${recipe.name}</h5>
                                 <p class="card-text">${recipe.description || 'No description available.'}</p>
                                 <p><strong>Category:</strong> ${recipe.category || 'Unknown'}</p>
-                                <a href="#" class="btn btn-primary">View Recipe</a>
+                                <button class="btn btn-primary">View</button>
                                 <button class="btn btn-danger mt-2" onclick="removeRecipe(${index})">Remove</button>
                             </div>
                         </div>
@@ -215,6 +215,13 @@ footer p {
 
         // Initial render
         renderRecipes();
+
+        allFavRecipesContainer.querySelector(".btn-primary").addEventListener("click",()=>{
+    localStorage.setItem("singleItem",JSON.stringify(i))
+    window.location.href="../Singleitem/item.html"
+
+    
+})
     </script>
 </body>
 </html>

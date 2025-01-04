@@ -1,7 +1,10 @@
 /* General body styling */
 body {
     font-family: Arial, sans-serif;
-    /* background-image: url(https://t3.ftcdn.net/jpg/08/76/85/70/360_F_876857092_SKx5v96nEPMKG9kbLqBA9EdP5bWHuvAz.jpg; */
+    background-image: url(https://t3.ftcdn.net/jpg/08/76/85/70/360_F_876857092_SKx5v96nEPMKG9kbLqBA9EdP5bWHuvAz.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    /* backdrop-filter: blur(5px); */
     background-color: #f4f4f4; /* Light gray background */
     display: flex;
     flex-direction: column;
@@ -13,13 +16,13 @@ body {
 
 /* Main heading styling */
 h1 {
-    color: #333; /* Dark gray color */
+    color: #e9eef1; /* Dark gray color */
     margin-bottom: 10px;
 }
 
 /* Subheading styling */
 h2 {
-    color: #555; /* Medium gray color */
+    color: #e7dede; /* Medium gray color */
     margin-bottom: 20px;
 }
 
@@ -63,6 +66,7 @@ button:hover {
 /* Link styling */
 p {
     margin-top: 15px; /* Margin for spacing */
+    color: #e7dede;
 }
 
 a {

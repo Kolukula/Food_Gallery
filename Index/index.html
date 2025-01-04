@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Food Gallery</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<style>
+  /* General Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Light grey background */
+    color: #333; /* Darker text */
+}
+
+/* Navbar */
+.navbar {
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand img {
+    border-radius: 8px; /* Adds rounded corners to the logo */
+}
+
+.nav-link {
+    color: #007bff; /* Blue color for links */
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: #0056b3; /* Darker blue on hover */
+}
+
+/* Carousel */
+.carousel {
+    margin: 20px auto; /* Adds space above and below the carousel */
+    padding: 50px; /* Adds space inside the carousel container */
+    border: 2px solid #ddd; /* Optional: Adds a light border around the carousel */
+    border-radius: 10px; /* Optional: Rounds the corners of the carousel */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1); /* Adds a subtle shadow for a 3D effect */
+}
+/* .carousel-item img {
+    height: 500px;
+    object-fit: cover;
+} */
+
+/* Carousel Images */
+.carousel-item img {
+    width: 100%; /* Full width */
+    height: 700px; /* Fixed height for consistency */
+    object-fit: cover; /* Ensures the image covers the area without distortion */
+    object-position: center; /* Center the image */
+    border-radius: 20px;
+}
+
+
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-color: rgba(0, 0, 0, 0.5);
+    border-radius: 50%;
+}
+
+/* Carousel indicators */
+.carousel-indicators button {
+    background-color: #007bff;
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+}
+
+.carousel-indicators .active {
+    background-color: #0056b3;
+}
+
+/* cat div */
+h1{
+  text-align: center;
+  color: #007bff;
+}
+.cat{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  margin-top: 20px;
+  img{
+    width: 350px;
+    height: 350px;
+    border-radius: 20px;
+    box-shadow: 0 0 10px black;
+  }
+}
+/* .cat img:hover{
+    transform: scale(1.08);
+    transition: 2s transform;
+} */
+
+/* Text below the carousel */
+.text-center p {
+    font-size: 1.2rem;
+    margin-top: 20px;
+}
+
+.text-center a {
+    color: #28a745; /* Green color for the link */
+    font-weight: bold;
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.text-center a:hover {
+    color: #19692c; /* Darker green on hover */
+}
+
+/* Footer (optional if needed) */
+footer {
+    background-color: #343a40;
+    color: #fff;
+    text-align: center;
+    padding: 10px 0;
+    position: relative;
+    bottom: 0;
+    width: 100%;
+    margin-top: 20px;
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    color: #0056b3;
+}
+
+</style>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand"><img src="../Images/logo.png" alt="Logo" width="100px"></a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+                <li class="nav-item">
+                    <a class="nav-link" href="../Login/login.html">Login</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="../Signup/signup.html">Sign Up</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+      
+    <div id="carouselExampleIndicators" class="carousel slide" data-bs-ride="carousel">
+        <div class="carousel-indicators">
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+          <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+        </div>
+        <div class="carousel-inner">
+          <div class="carousel-item active">
+            <a href="../Login/login.html"><img src="https://thumbs.dreamstime.com/b/fried-chicken-kebab-kabab-tikka-masala-dark-black-background-bangalore-hyderabad-south-india-top-view-indian-non-v-veg-food-325434553.jpg" alt="First slide"></a>
+            
+          </div>
+          <div class="carousel-item">
+            <a href="../Login/login.html"><img src="https://t4.ftcdn.net/jpg/06/03/15/77/360_F_603157700_vyoeoK6tila5D9fB7VdbQr4mAY1to9zJ.jpg" alt="Second slide"></a>
+          </div>
+          <div class="carousel-item">
+            <a href="../Login/login.html"><img src="https://www.kingarthurbaking.com/sites/default/files/styles/featured_image/public/2024-11/easy-holiday-baking-recipes.jpg?itok=RP6CFk4r" alt="Third slide"></a>
+          </div>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Previous</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">Next</span>
+        </button>
+    </div>
+<h1>Categories</h1>
+    <div class="cat">
+      <div id="catbox">
+          <img src="https://www.freshtohome.com/blog/wp-content/uploads/2024/08/RoyalRajputKitchens-Rogan-Josh.png" alt="">
+      </div>
+      <div id="catbox">
+          <img src="https://veganhuggs.com/wp-content/uploads/2020/09/red-lentil-dahl-square-crop-a.jpg" alt="">
+        
+      </div>
+      <div id="catbox">
+        <img src="https://t3.ftcdn.net/jpg/04/92/25/44/360_F_492254427_CnSgZIJNCMYaegGp2bUmw8CJdD5VetTt.jpg" alt="">
+      </div>
+    </div>
+
+    <div class="text-center mt-4">
+        <p>Make your own recipes! <a href="../Login/login.html">Browse</a></p>
+    </div>
+
+    <footer class="text-center mt-5">
+      <p>&copy; 2024 Recipe App. All rights reserved.</p>
+  </footer>
+    
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script>
+       catbox=document.getElementById("catbox")
+       catbox.addEventListener("click",()=>{
+        window.location.href="../Login/login.html"
+       })
+    </script>
+</body>
+</html>

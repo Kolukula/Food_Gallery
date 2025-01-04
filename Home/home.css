@@ -1,5 +1,8 @@
 body {
     background-color: #f8f9fa;
+    background-image: url(https://t3.ftcdn.net/jpg/08/76/85/70/360_F_876857092_SKx5v96nEPMKG9kbLqBA9EdP5bWHuvAz.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 h1 {
@@ -60,43 +63,84 @@ footer {
     justify-content: center;
     gap: 20px;
     button{
-        background-color: rgb(61, 94, 240);
+        background-color: rgb(35, 116, 222);
         border-radius: 5px;
+        width: 10%;
+        height: 40px;
     }
 }
 .mtp{
     text-align: center;
 }
-/* #recipeResults {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
+
+
+
+
+/* Media Queries */
+
+/* Small devices (phones in portrait mode, <= 576px) */
+@media (max-width: 576px) {
+    #item {
+        width: 100%; /* Full-width items */
+        margin: 10px 0;
+    }
+
+    .cat button {
+        width: 40%; /* Buttons take more space on small screens */
+        height: 35px;
+    }
+
+    .navbar {
+        font-size: 14px;
+    }
 }
 
-.recipe-card {
-    border: 1px solid #648bb1;
-    border-radius: 5px;
-    margin: 10px;
-    width: 300px;
-    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+/* Medium devices (tablets in portrait mode, <= 768px) */
+@media (max-width: 768px) {
+    #item {
+        width: 45%; /* Slightly smaller items */
+        margin: 10px;
+    }
+
+    .cat button {
+        width: 30%; /* Smaller buttons */
+        height: 40px;
+    }
+
+    .navbar {
+        font-size: 16px;
+    }
 }
 
-.recipe-card img {
-    border-top-left-radius: 5px;
-    border-top-right-radius: 5px;
-    width: 100%;
+/* Large devices (laptops/desktops, <= 1024px) */
+@media (max-width: 1024px) {
+    #item {
+        width: 22%; /* 4 items per row */
+        margin: 15px;
+    }
+
+    .cat button {
+        width: 20%; /* Compact buttons */
+        height: 45px;
+    }
+
+    .navbar {
+        font-size: 18px;
+    }
 }
 
-.recipe-card-body {
-    padding: 15px;
-}
+/* Extra-large devices (large screens, > 1024px) */
+@media (min-width: 1025px) {
+    #item {
+        width: 300px; /* Keep the item size fixed */
+    }
 
-.recipe-card-title {
-    font-size: 1.25rem;
-    font-weight: bold;
-}
+    .cat button {
+        width: 15%; /* Smaller buttons for extra large screens */
+        height: 50px;
+    }
 
-.recipe-card-description {
-    font-size: 0.9rem;
-    color: #6c757d;
-} */
+    .navbar {
+        font-size: 20px;
+    }
+}

@@ -10,10 +10,10 @@ loginBtn.addEventListener("click", () => {
     let inputUserName = document.getElementById("userName").value
     let inputUserPswd = document.getElementById("userPswd").value
     if(nameStorage == inputUserName && pswdStorage == inputUserPswd){
-        alert("Ayyo sir meera randi...!!!!!!!!!!!!!!")
+        alert("login ayyaru....!!!!!!")
             window.open("../Home/home.html")
     }
     else {
-        alert("Password tappu raa...!!!!!")
+        alert("Password tappu...!!!!!")
     }
 })
