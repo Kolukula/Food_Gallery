@@ -1,8 +1,9 @@
 body {
     background-color: #f8f9fa;
-    background-image: url(https://t3.ftcdn.net/jpg/08/76/85/70/360_F_876857092_SKx5v96nEPMKG9kbLqBA9EdP5bWHuvAz.jpg);
+    /* background-image: url(../Images/logo.png); */
+    background-size: auto;
     background-repeat: no-repeat;
-    background-size: cover;
+    /* background-position:inherit; */
 }
 
 h1 {

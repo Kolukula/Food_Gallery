@@ -82,7 +82,7 @@ const recipesContainer = document.getElementById("items");
 // Render recipes dynamically
 function renderRecipes(data) {
     recipesContainer.innerHTML = ""; // Clear previous recipes
-    data.forEach((recipe, index) => {
+    data.forEach( (recipe, index)=> {
         let card = document.createElement("div");
         card.id = "item";
         card.innerHTML = `
