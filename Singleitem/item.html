@@ -60,7 +60,7 @@
           background-color: #343a40;
           color: #fff;
           padding: 15px;
-          position: fixed;
+          /* position: fixed; */
           bottom: 0;
           width: 100%;
       }
@@ -141,6 +141,9 @@
       .item-card strong {
           color: #000;
       }
+      ul li{
+        list-style: none;
+      }
   </style>
     
 
@@ -182,7 +185,9 @@
         <p>${singleItem.description }</p>
         <p><strong>Category:</strong> ${singleItem.category }</p>
         <p><strong>Ingredients:</strong> ${singleItem.ingredients}</p>
-        <ul><strong>Making Process:</strong> ${singleItem.steps}</ul>
+        <ul><strong>Making Process:</strong> ${singleItem.steps.map((l)=>{
+            return `<li>${l}</li>`
+        }).join("")}</ul>
         `
         item.append(itemCard)
         
